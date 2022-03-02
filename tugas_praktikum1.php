@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Tugas Praktikum 1</title>
   </head>
   <body>
     <?php
@@ -33,24 +33,20 @@
           <td>Tugas</td>
           <td>Nilai Akhir</td>
         </tr>
-        <?php
-          $nomor = 1;
-            foreach ($ar_nilai as $ns) {
-            $nilai_akhir = ($ns["uts"] + $ns["uas"] + $ns["tugas"])/3;
-            echo "<tr><td>".$nomor."</td>";
-            echo "<td>".$ns["Nim"]."</td>";
-            echo "<td>".$ns["uts"]."</td>";
-            echo "<td>".$ns["uas"]."</td>";
-            echo "<td>".$ns["tugas"]."</td>";
-            echo "<td>".number_format($nilai_akhir,2,",",".")."</td></tr>";
-            $nomor++;
-            
-          }
-        ?>
-
-      </table>
-
+        <?php $nomor = 1; ?>
+        <?php foreach ($ar_nilai as $ns) :?>
+          <?php $nilai_akhir = ($ns["uts"] + $ns["uas"] + $ns["tugas"])/3;?>
+          <tr>
+            <td><?= $nomor;?></td>
+            <td><?= $ns["Nim"];?></td>
+            <td><?= $ns["uts"];?></td>
+            <td><?= $ns["uas"];?></td>
+            <td><?= $ns["tugas"];?></td>
+            <td><?= number_format($nilai_akhir,2,",","."); ?></td>
+            <?php $nomor++;?>
+            <?php endforeach ;?>
+          </tr>
+        </table>
   </body>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </html>
